@@ -31,7 +31,7 @@ describe('Initializing git2consul', function() {
 
       var create_branch_and_add = function(branch_name, done) {
         return function() {
-          git_commands.checkout_branch(branch_name, git_utils.TEST_REMOTE_REPO, function(err) {
+          git_commands.checkout_treeish(branch_name, git_utils.TEST_REMOTE_REPO, function(err) {
             if (err) return done(err);
 
             git_utils.addFileToGitRepo("readme.md", "Test file in " + branch_name + " branch", branch_name + " commit", function(err) {
